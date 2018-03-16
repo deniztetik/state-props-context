@@ -1,0 +1,18 @@
+.main {
+  text-align: center;
+}
+
+.post__header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.post__title {
+  font-size: 1.5em;
+}
+
+.post__body {
+  font-size: large;
+  margin: 50px 10%;
+}
