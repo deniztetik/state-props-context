@@ -15,7 +15,7 @@ class App extends Component {
     upvotes: 0,
   }
 
-  upVote = () => {
+  addUpVote = () => {
     this.setState({
       upvotes: this.state.upvotes + 1,
     })
@@ -40,7 +40,7 @@ class App extends Component {
           title={this.state.title}
           content={this.state.content}
           upvotes={this.state.upvotes}
-          upVote={this.upVote}
+          addUpVote={this.addUpVote}
         />
         <EditForm
           title={this.state.title}
