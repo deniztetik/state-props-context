@@ -18,7 +18,7 @@ class App extends Component {
     'Sea an ullum similique interesset.',
   }
 
-  upVote = () => {
+  addUpVote = () => {
     this.setState({
       upvotes: this.state.upvotes + 1,
     })
@@ -61,7 +61,9 @@ class App extends Component {
           <p className="post__body">
             {content}
           </p>
-          <button onClick={this.upVote}>
+          <button
+            className="post__plus-one-button"
+            onClick={this.addUpVote}>
             + {upvotes}
           </button>
         </div>
