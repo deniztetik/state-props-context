@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Post from './Post';
-import EditForm from './EditForm';
+import EditForm from './EditForm';  
 
 class App extends Component {
   state = {
