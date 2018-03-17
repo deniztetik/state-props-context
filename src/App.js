@@ -24,19 +24,17 @@ class App extends Component {
     })
   }
 
-  modifyTitle = (event) => {
-    const titleDirty = event.target.value;
+  handleInputChange = (event) => {
+    const {
+      value,
+      name,
+    } = event.target;
+
     this.setState({
-      titleDirty: titleDirty,
-    })
+      [name]: value
+    });
   }
 
-  modifyContent = (event) => {
-    const contentDirty = event.target.value;
-    this.setState({
-      contentDirty: contentDirty,
-    })
-  }
 
   savePost = () => {
     this.setState({
@@ -49,6 +47,8 @@ class App extends Component {
     const {
       title,
       content,
+      titleDirty,
+      contentDirty,
       upvotes,
     } = this.state;
 
@@ -69,18 +69,18 @@ class App extends Component {
           <label>Title:</label>
           <input
             type="text"
-            name="title"
+            name="titleDirty"
             label="Title"
-            value={this.state.titleDirty}
-            onChange={this.modifyTitle}
+            value={titleDirty}
+            onChange={this.handleInputChange}
           />
           <label>Content:</label>
           <textarea
             className="edit-post__content"
             type="text"
-            name="content"
-            value={this.state.contentDirty}
-            onChange={this.modifyContent}
+            name="contentDirty"
+            value={contentDirty}
+            onChange={this.handleInputChange}
           />
           <button onClick={this.savePost}>Save Post</button>
         </div>
