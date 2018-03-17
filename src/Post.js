@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Post.css';
+
 const Post = (props) => (
   <div className="post">
     <header className="post__header">
@@ -9,7 +11,7 @@ const Post = (props) => (
       {props.content}
     </p>
     <button
-      className="post__plus-one-button"
+      className="button"
       onClick={props.addUpVote}>
       + {props.upvotes}
     </button>

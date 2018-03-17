@@ -2,52 +2,12 @@
   text-align: center;
 }
 
-.post__header {
-  background-color: #222;
-  padding: 20px;
-  color: white;
-}
-
-.post__title {
-  font-size: 1.5em;
-  font-family: 'Josefin Slab', serif;  
-}
-
-.post__body {
-  font-size: large;
-  margin: 50px 10%;
-  font-family: 'Oswald', sans-serif;
-}
-
-.post__plus-one-button {
+.button {
   background-color: #00d1b2;
   color: #fff;
-
   font-size: 1rem;
-
   border-color: transparent;
   border-radius: 3px;
-
   padding: 5px 10px;
-
   cursor: pointer;
-}
-
-.post__plus-one-button:focus {
-  outline: 0;
-}
-
-.edit-post {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.edit-post > * {
-  margin: 10px;
-}
-
-.edit-post__content {
-  width: 500px;
-  height: 300px;
 }

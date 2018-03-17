@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './EditForm.css';
 
 class EditForm extends Component {
   state = {
@@ -52,6 +53,7 @@ class EditForm extends Component {
       <div className="edit-post">
         <label>Title:</label>
         <input
+          className="edit-post__input"
           type="text"
           name="title"
           label="Title"
@@ -67,6 +69,7 @@ class EditForm extends Component {
           onChange={this.handleInputChange}
         />
         <button
+          className="button"
           onClick={() => {
             savePost({ title, content })
           }}>
