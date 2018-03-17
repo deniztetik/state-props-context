@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Post from './Post';
+import EditForm from './EditForm';
+
 class App extends Component {
   state = {
     title: 'My Very First Blog Post',
@@ -17,7 +20,6 @@ class App extends Component {
       upvotes: this.state.upvotes + 1,
     })
   }
-
 
   savePost = (post) => {
     const {
@@ -51,88 +53,3 @@ class App extends Component {
 }
 
 export default App;
-
-const Post = (props) => (
-  <div className="post">
-    <header className="post__header">
-      <h1 className="post__title">{props.title}</h1>
-    </header>
-    <p className="post__body">
-      {props.content}
-    </p>
-    <button onClick={props.upVote}>
-      + {props.upvotes}
-    </button>
-  </div>
-);
-
-class EditForm extends Component {
-  state = {
-    title: '',
-    content: '',
-  }
-
-  static getDerivedStateFromProps(props) {
-    const {
-      title,
-      content,
-    } = props;
-
-    return {
-      title,
-      content,
-    }
-  }
-
-  modifyTitle = (event) => {
-    const title = event.target.value;
-    this.setState({
-      title,
-    })
-  }
-
-  modifyContent = (event) => {
-    const content = event.target.value;
-    this.setState({
-      content,
-    })
-  }
-
-  render() {
-    const {
-      savePost
-    } = this.props;
-
-    const {
-      title,
-      content
-    } = this.state;
-
-    return (
-      <div className="edit-post">
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          label="Title"
-          value={title}
-          onChange={this.modifyTitle}
-        />
-        <label>Content:</label>
-        <textarea
-          className="edit-post__content"
-          type="text"
-          name="content"
-          value={content}
-          onChange={this.modifyContent}
-        />
-        <button
-          onClick={() => {
-            savePost({title, content})
-          }}>
-          Save Post
-        </button>
-      </div>
-    )
-  }
-}
