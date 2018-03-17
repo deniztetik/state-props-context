@@ -19,17 +19,23 @@ class App extends Component {
   }
 
   render() {
+    const {
+      title,
+      content,
+      upvotes,
+    } = this.state;
+
     return (
       <div className="main">
         <div className="post">
           <header className="post__header">
-            <h1 className="post__title">{this.state.title}</h1>
+            <h1 className="post__title">{title}</h1>
           </header>
           <p className="post__body">
-            {this.state.content}
+            {content}
           </p>
           <button onClick={this.upVote}>
-            + {this.state.upvotes}
+            + {upvotes}
           </button>
         </div>
       </div>
