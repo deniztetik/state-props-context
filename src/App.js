@@ -4,18 +4,18 @@ import './App.css';
 class App extends Component {
   state = {
     title: 'My Very First Blog Post',
-    content: 'Vim ex mucius tincidunt, at quo justo ceteros facilisis, te erat offendit cum.' + 
-    'Errem oportere cu nam. An tale modus omittantur per, sed fierent detracto ne.' +
-    'Semper inermis reprimique an mei, qui at probo illum accumsan.' +
-    'Id quo quod tincidunt scriptorem, et solet prodesset sea.' + 
-    'Sea an ullum similique interesset.',
+    content: 'Vim ex mucius tincidunt, at quo justo ceteros facilisis, te erat offendit cum.' +
+      'Errem oportere cu nam. An tale modus omittantur per, sed fierent detracto ne.' +
+      'Semper inermis reprimique an mei, qui at probo illum accumsan.' +
+      'Id quo quod tincidunt scriptorem, et solet prodesset sea.' +
+      'Sea an ullum similique interesset.',
     upvotes: 0,
     titleDirty: 'My Very First Blog Post',
-    contentDirty: 'Vim ex mucius tincidunt, at quo justo ceteros facilisis, te erat offendit cum.' + 
-    'Errem oportere cu nam. An tale modus omittantur per, sed fierent detracto ne.' +
-    'Semper inermis reprimique an mei, qui at probo illum accumsan.' +
-    'Id quo quod tincidunt scriptorem, et solet prodesset sea.' + 
-    'Sea an ullum similique interesset.',
+    contentDirty: 'Vim ex mucius tincidunt, at quo justo ceteros facilisis, te erat offendit cum.' +
+      'Errem oportere cu nam. An tale modus omittantur per, sed fierent detracto ne.' +
+      'Semper inermis reprimique an mei, qui at probo illum accumsan.' +
+      'Id quo quod tincidunt scriptorem, et solet prodesset sea.' +
+      'Sea an ullum similique interesset.',
   }
 
   addUpVote = () => {
@@ -62,7 +62,7 @@ class App extends Component {
             {content}
           </p>
           <button
-            className="post__plus-one-button"
+            className="button"
             onClick={this.addUpVote}>
             + {upvotes}
           </button>
@@ -70,6 +70,7 @@ class App extends Component {
         <div className="edit-post">
           <label>Title:</label>
           <input
+            className="edit-post__input"
             type="text"
             name="titleDirty"
             label="Title"
@@ -84,7 +85,11 @@ class App extends Component {
             value={contentDirty}
             onChange={this.handleInputChange}
           />
-          <button onClick={this.savePost}>Save Post</button>
+          <button
+            className="button"
+            onClick={this.savePost}>
+            Save Post
+          </button>
         </div>
       </div>
     );
