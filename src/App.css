@@ -10,9 +10,29 @@
 
 .post__title {
   font-size: 1.5em;
+  font-family: 'Josefin Slab', serif;  
 }
 
 .post__body {
   font-size: large;
   margin: 50px 10%;
+  font-family: 'Oswald', sans-serif;
+}
+
+.post__plus-one-button {
+  background-color: #00d1b2;
+  color: #fff;
+
+  font-size: 1rem;
+
+  border-color: transparent;
+  border-radius: 3px;
+
+  padding: 5px 10px;
+
+  cursor: pointer;
+}
+
+.post__plus-one-button:focus {
+  outline: 0;
 }
