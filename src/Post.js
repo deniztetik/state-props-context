@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './Post.css';
-
 const Post = (props) => (
   <div className="post">
     <header className="post__header">

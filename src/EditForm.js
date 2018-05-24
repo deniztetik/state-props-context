@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './EditForm.css';
 
 class EditForm extends Component {
   state = {
