@@ -4,7 +4,15 @@ import './App.css';
 import Post from './Post';
 import EditForm from './EditForm';
 
+import { AppContext, context } from './app-context';
+
 class App extends Component {
+  addUpVote = () => {
+    this.setState({
+      upvotes: this.state.upvotes + 1,
+    });
+  }
+
   state = {
     title: 'My Very First Blog Post',
     content: 'Vim ex mucius tincidunt, at quo justo ceteros facilisis, te erat offendit cum.' +
@@ -12,6 +20,8 @@ class App extends Component {
       'Semper inermis reprimique an mei, qui at probo illum accumsan.' +
       'Id quo quod tincidunt scriptorem, et solet prodesset sea.' +
       'Sea an ullum similique interesset.',
+    upvotes: context.upvotes,
+    addUpVote: this.addUpVote,
   }
 
   savePost = (post) => {
@@ -28,6 +38,7 @@ class App extends Component {
 
   render() {
     return (
+      <AppContext.Provider value={this.state}>
         <div className="main">
           <Post
             title={this.state.title}
@@ -39,6 +50,7 @@ class App extends Component {
             savePost={this.savePost}
           />
         </div>
+      </AppContext.Provider>
     );
   }
 }
