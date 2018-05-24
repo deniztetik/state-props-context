@@ -3,18 +3,18 @@ import React from 'react';
 import { AppContext } from './app-context';
 
 const Post = (props) => (
-  <div className="post">
-    <PostTitle title={props.title} />
-    <PostContent content={props.content} />
-    <AppContext.Consumer>
-      {({ upvotes, addUpVote }) =>
+  <AppContext.Consumer>
+    {({ upvotes, addUpVote }) =>
+      <div className="post">
+        <PostTitle title={props.title} />
+        <PostContent content={props.content} />
         <button
           className="button"
           onClick={addUpVote}>
           + {upvotes}
-        </button>}
-    </AppContext.Consumer>
-  </div>
+        </button>
+      </div>}
+  </AppContext.Consumer>
 );
 
 export default Post;
