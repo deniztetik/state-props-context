@@ -1,14 +1,19 @@
 import React from 'react';
 
+import { AppContext } from './app-context';
+
 const Post = (props) => (
   <div className="post">
     <PostTitle title={props.title} />
     <PostContent content={props.content} />
-    <button
-      className="button"
-      onClick={props.addUpVote}>
-      + {props.upvotes}
-    </button>
+    <AppContext.Consumer>
+      {({ upvotes, addUpVote }) =>
+        <button
+          className="button"
+          onClick={addUpVote}>
+          + {upvotes}
+        </button>}
+    </AppContext.Consumer>
   </div>
 );
 

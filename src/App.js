@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Post from './Post';
-import EditForm from './EditForm';  
+import EditForm from './EditForm';
 
 class App extends Component {
   state = {
@@ -12,13 +12,6 @@ class App extends Component {
       'Semper inermis reprimique an mei, qui at probo illum accumsan.' +
       'Id quo quod tincidunt scriptorem, et solet prodesset sea.' +
       'Sea an ullum similique interesset.',
-    upvotes: 0,
-  }
-
-  addUpVote = () => {
-    this.setState({
-      upvotes: this.state.upvotes + 1,
-    })
   }
 
   savePost = (post) => {
@@ -35,19 +28,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main">
-        <Post
-          title={this.state.title}
-          content={this.state.content}
-          upvotes={this.state.upvotes}
-          addUpVote={this.addUpVote}
-        />
-        <EditForm
-          title={this.state.title}
-          content={this.state.content}
-          savePost={this.savePost}
-        />
-      </div>
+        <div className="main">
+          <Post
+            title={this.state.title}
+            content={this.state.content}
+          />
+          <EditForm
+            title={this.state.title}
+            content={this.state.content}
+            savePost={this.savePost}
+          />
+        </div>
     );
   }
 }
