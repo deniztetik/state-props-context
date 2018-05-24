@@ -1,30 +1,11 @@
 import React, { Component } from 'react';
 
+import { AppContext, context } from './app-context';
+
 class EditForm extends Component {
   state = {
-    title: this.props.title,
-    content: this.props.content,
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const {
-      nextTitle,
-      nextContent,
-    } = nextProps;
-
-    const {
-      prevTitle,
-      prevContent,
-    } = prevState;
-
-    if (nextTitle !== prevTitle || nextContent !== prevContent) {
-      return {
-        nextTitle,
-        nextContent,
-      }
-    }
-
-    return null;
+    title: context.title,
+    content: context.content,
   }
 
   handleInputChange = (event) => {
@@ -40,41 +21,41 @@ class EditForm extends Component {
 
   render() {
     const {
-      savePost
-    } = this.props;
-
-    const {
-      title,
-      content
+      title: titleDirty,
+      content: contentDirty,
     } = this.state;
 
     return (
-      <div className="edit-post">
-        <label>Title:</label>
-        <input
-          className="edit-post__input"
-          type="text"
-          name="title"
-          label="Title"
-          value={title}
-          onChange={this.handleInputChange}
-        />
-        <label>Content:</label>
-        <textarea
-          className="edit-post__content"
-          type="text"
-          name="content"
-          value={content}
-          onChange={this.handleInputChange}
-        />
-        <button
-          className="button"
-          onClick={() => {
-            savePost({ title, content })
-          }}>
-          Save Post
+      <AppContext.Consumer>
+        {({ title, content, savePost }) => (
+          <div className="edit-post">
+            <label>Title:</label>
+            <input
+              className="edit-post__input"
+              type="text"
+              name="title"
+              label="Title"
+              defaultValue={title}
+              onChange={this.handleInputChange}
+            />
+            <label>Content:</label>
+            <textarea
+              className="edit-post__content"
+              type="text"
+              name="content"
+              defaultValue={content}
+              onChange={this.handleInputChange}
+            />
+            <button
+              className="button"
+              onClick={() => {
+                savePost({ title: titleDirty, content: contentDirty })
+              }}>
+              Save Post
           </button>
-      </div>
+          </div>
+        )}
+      </AppContext.Consumer>
     )
   }
 }

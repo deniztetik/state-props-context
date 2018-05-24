@@ -4,10 +4,10 @@ import { AppContext } from './app-context';
 
 const Post = (props) => (
   <AppContext.Consumer>
-    {({ upvotes, addUpVote }) =>
+    {({ title, content, upvotes, addUpVote }) =>
       <div className="post">
-        <PostTitle title={props.title} />
-        <PostContent content={props.content} />
+        <PostTitle title={title} />
+        <PostContent content={content} />
         <button
           className="button"
           onClick={addUpVote}>
