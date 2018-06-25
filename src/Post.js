@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AppContext } from './app-context';
 
-const Post = (props) => (
+const Post = () => (
   <AppContext.Consumer>
     {({ title, content, upvotes, addUpVote }) =>
       <div className="post">
